@@ -15,9 +15,9 @@ apis:
     baseUrl: https://api.scalability.example.com/v1/autoscaling
     tags:
       - Auto Scaling
-      - Infrastructure
       - Cloud Computing
       - Elastic Scaling
+      - Infrastructure
     properties:
       - type: Documentation
         url: https://docs.scalability.example.com/auto-scaling
@@ -41,10 +41,10 @@ apis:
     humanUrl: https://scalability-apis.example.com/load-balancer
     baseUrl: https://api.scalability.example.com/v1/loadbalancer
     tags:
+      - Distribution
+      - High Availability
       - Load Balancing
       - Traffic Management
-      - High Availability
-      - Distribution
     properties:
       - type: Documentation
         url: https://docs.scalability.example.com/load-balancer
@@ -68,9 +68,9 @@ apis:
     humanUrl: https://scalability-apis.example.com/horizontal-scaling
     baseUrl: https://api.scalability.example.com/v1/horizontal
     tags:
+      - Containerization
       - Horizontal Scaling
       - Instance Management
-      - Containerization
       - Orchestration
     properties:
       - type: Documentation
@@ -93,18 +93,17 @@ apis:
     humanUrl: https://scalability-apis.example.com/vertical-scaling
     baseUrl: https://api.scalability.example.com/v1/vertical
     tags:
-      - Vertical Scaling
-      - Resource Management
-      - Performance Optimization
       - Infrastructure
+      - Performance Optimization
+      - Resource Management
+      - Vertical Scaling
     properties:
       - type: Documentation
         url: https://docs.scalability.example.com/vertical-scaling
       - type: OpenAPI
         url: https://api.scalability.example.com/v1/vertical/openapi.json
       - type: Best Practices
-        url: 
-          https://docs.scalability.example.com/vertical-scaling/best-practices
+        url: https://docs.scalability.example.com/vertical-scaling/best-practices
     contact:
       - type: Support
         url: https://support.scalability.example.com/vertical-scaling
@@ -117,11 +116,11 @@ apis:
     humanUrl: https://scalability-apis.example.com/monitoring
     baseUrl: https://api.scalability.example.com/v1/monitoring
     tags:
-      - Monitoring
-      - Metrics
       - Analytics
-      - Performance
+      - Metrics
+      - Monitoring
       - Observability
+      - Performance
     properties:
       - type: Documentation
         url: https://docs.scalability.example.com/monitoring
@@ -168,8 +167,8 @@ apis:
     humanUrl: https://scalability-apis.example.com/database
     baseUrl: https://api.scalability.example.com/v1/database
     tags:
-      - Database
       - Data Scaling
+      - Database
       - Replication
       - Sharding
       - Storage
@@ -194,9 +193,9 @@ apis:
     humanUrl: https://scalability-apis.example.com/queue
     baseUrl: https://api.scalability.example.com/v1/queue
     tags:
-      - Message Queue
       - Asynchronous Processing
       - Event-Driven
+      - Message Queue
       - Microservices
     properties:
       - type: Documentation
@@ -225,12 +224,12 @@ maintainers:
     url: https://scalability-apis.example.com/about
     twitter: '@ScalabilityAPIs'
 tags:
-  - Scalability
   - Auto Scaling
-  - Load Balancing
-  - Performance
-  - Infrastructure
   - Cloud Computing
   - DevOps
-  - High Availability
   - Distributed Systems
+  - High Availability
+  - Infrastructure
+  - Load Balancing
+  - Performance
+  - Scalability
