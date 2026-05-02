@@ -1,0 +1,101 @@
+{
+  "name": "Scaling Policy",
+  "description": "Hierarchical structure of a scaling policy used in event-driven and metric-based autoscaling systems.",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string",
+      "description": "Unique name for the scaling policy.",
+      "required": true
+    },
+    {
+      "name": "namespace",
+      "type": "string",
+      "description": "Namespace or resource group scope.",
+      "required": false
+    },
+    {
+      "name": "targetRef",
+      "type": "object",
+      "description": "The workload being scaled.",
+      "required": true,
+      "fields": [
+        {"name": "apiVersion", "type": "string", "description": "API group and version.", "required": false},
+        {"name": "kind", "type": "string", "description": "Resource kind (e.g., Deployment, StatefulSet).", "required": true},
+        {"name": "name", "type": "string", "description": "Resource name.", "required": true}
+      ]
+    },
+    {
+      "name": "minReplicaCount",
+      "type": "integer",
+      "description": "Minimum replicas; 0 enables scale-to-zero.",
+      "required": false,
+      "default": 0
+    },
+    {
+      "name": "maxReplicaCount",
+      "type": "integer",
+      "description": "Maximum replicas for scale-out ceiling.",
+      "required": false,
+      "default": 100
+    },
+    {
+      "name": "pollingInterval",
+      "type": "integer",
+      "description": "Seconds between metric polls.",
+      "required": false,
+      "default": 30
+    },
+    {
+      "name": "cooldownPeriod",
+      "type": "integer",
+      "description": "Seconds to wait before scaling down after trigger becomes inactive.",
+      "required": false,
+      "default": 300
+    },
+    {
+      "name": "triggers",
+      "type": "array",
+      "description": "Scaling triggers driving autoscaling decisions.",
+      "required": true,
+      "items": {
+        "type": "object",
+        "fields": [
+          {"name": "type", "type": "string", "description": "Trigger type (e.g., cpu, kafka, prometheus).", "required": true},
+          {"name": "name", "type": "string", "description": "Optional trigger name.", "required": false},
+          {"name": "threshold", "type": "number", "description": "Target metric value for scale-out.", "required": false},
+          {"name": "metadata", "type": "object", "description": "Trigger-specific parameters.", "required": false},
+          {"name": "authenticationRef", "type": "object", "description": "Reference to authentication credentials.", "required": false}
+        ]
+      }
+    },
+    {
+      "name": "scalingBehavior",
+      "type": "object",
+      "description": "Controls scale-up and scale-down rate policies.",
+      "required": false,
+      "fields": [
+        {
+          "name": "scaleUp",
+          "type": "object",
+          "description": "Rules for scaling up.",
+          "fields": [
+            {"name": "stabilizationWindowSeconds", "type": "integer", "description": "Look-back window for scale-up decisions."},
+            {"name": "policies", "type": "array", "description": "Rate policies (Pods or Percent per period)."},
+            {"name": "selectPolicy", "type": "string", "description": "Max, Min, or Disabled."}
+          ]
+        },
+        {
+          "name": "scaleDown",
+          "type": "object",
+          "description": "Rules for scaling down.",
+          "fields": [
+            {"name": "stabilizationWindowSeconds", "type": "integer", "description": "Look-back window for scale-down decisions."},
+            {"name": "policies", "type": "array", "description": "Rate policies (Pods or Percent per period)."},
+            {"name": "selectPolicy", "type": "string", "description": "Max, Min, or Disabled."}
+          ]
+        }
+      ]
+    }
+  ]
+}

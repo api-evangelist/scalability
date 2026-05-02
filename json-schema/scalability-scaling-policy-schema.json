@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/scalability/main/json-schema/scalability-scaling-policy-schema.json",
+  "title": "Scaling Policy",
+  "description": "Defines a scaling policy for automatically adjusting compute resources based on demand, applicable to cloud auto-scaling systems like KEDA, AWS Auto Scaling, Azure Autoscale, and GCP Autoscaler.",
+  "type": "object",
+  "required": ["name", "targetRef", "triggers"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Unique identifier name for the scaling policy.",
+      "minLength": 1,
+      "maxLength": 253
+    },
+    "namespace": {
+      "type": "string",
+      "description": "Namespace or resource group where the policy applies.",
+      "default": "default"
+    },
+    "targetRef": {
+      "type": "object",
+      "description": "Reference to the target resource being scaled.",
+      "required": ["kind", "name"],
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "description": "API version of the target resource.",
+          "example": "apps/v1"
+        },
+        "kind": {
+          "type": "string",
+          "description": "Kind of the target resource.",
+          "enum": ["Deployment", "StatefulSet", "ReplicaSet", "DaemonSet", "Job", "CronJob", "Function", "ContainerApp"]
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the target resource."
+        }
+      }
+    },
+    "minReplicaCount": {
+      "type": "integer",
+      "description": "Minimum number of replicas to scale down to. Set to 0 for scale-to-zero.",
+      "minimum": 0,
+      "default": 0
+    },
+    "maxReplicaCount": {
+      "type": "integer",
+      "description": "Maximum number of replicas to scale up to.",
+      "minimum": 1,
+      "default": 100
+    },
+    "pollingInterval": {
+      "type": "integer",
+      "description": "Interval in seconds between polling triggers for scaling decisions.",
+      "minimum": 1,
+      "default": 30
+    },
+    "cooldownPeriod": {
+      "type": "integer",
+      "description": "Seconds to wait after the last active trigger before scaling down.",
+      "minimum": 0,
+      "default": 300
+    },
+    "triggers": {
+      "type": "array",
+      "description": "List of scaling triggers that drive autoscaling decisions.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/ScalingTrigger"
+      }
+    },
+    "scalingBehavior": {
+      "$ref": "#/$defs/ScalingBehavior"
+    },
+    "tags": {
+      "type": "object",
+      "description": "Key-value metadata labels for the scaling policy.",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "ScalingTrigger": {
+      "type": "object",
+      "description": "A trigger that drives autoscaling, such as CPU usage, queue depth, or custom metrics.",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Trigger type identifier.",
+          "examples": ["cpu", "memory", "kafka", "aws-sqs-queue", "azure-service-bus", "prometheus", "rabbitmq", "redis", "cron"]
+        },
+        "name": {
+          "type": "string",
+          "description": "Optional name for this trigger."
+        },
+        "threshold": {
+          "type": "number",
+          "description": "Target metric value triggering scale-out.",
+          "minimum": 0
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Trigger-specific configuration parameters.",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "authenticationRef": {
+          "type": "object",
+          "description": "Reference to a TriggerAuthentication resource.",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "kind": {
+              "type": "string",
+              "enum": ["TriggerAuthentication", "ClusterTriggerAuthentication"]
+            }
+          }
+        }
+      }
+    },
+    "ScalingBehavior": {
+      "type": "object",
+      "description": "Controls how scaling is performed (scale-up and scale-down rates and policies).",
+      "properties": {
+        "scaleUp": {
+          "$ref": "#/$defs/ScalingRules"
+        },
+        "scaleDown": {
+          "$ref": "#/$defs/ScalingRules"
+        }
+      }
+    },
+    "ScalingRules": {
+      "type": "object",
+      "description": "Rules governing the rate and behavior of scaling in one direction.",
+      "properties": {
+        "stabilizationWindowSeconds": {
+          "type": "integer",
+          "description": "How long (in seconds) to look back at metrics before making a scaling decision.",
+          "minimum": 0,
+          "maximum": 3600
+        },
+        "policies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["type", "value", "periodSeconds"],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["Pods", "Percent"]
+              },
+              "value": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "periodSeconds": {
+                "type": "integer",
+                "minimum": 1
+              }
+            }
+          }
+        },
+        "selectPolicy": {
+          "type": "string",
+          "enum": ["Max", "Min", "Disabled"],
+          "default": "Max"
+        }
+      }
+    }
+  }
+}

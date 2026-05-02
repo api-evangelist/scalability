@@ -1,0 +1,384 @@
+name: Scalability Vocabulary
+description: >-
+  Normative vocabulary for the scalability topic domain, covering key terms,
+  concepts, patterns, and classifications used in application scaling, infrastructure
+  elasticity, load balancing, and performance engineering.
+created: '2026-05-02'
+modified: '2026-05-02'
+tags:
+  - Auto Scaling
+  - Cloud Computing
+  - Distributed Systems
+  - Elasticity
+  - Infrastructure
+  - Scalability
+
+terms:
+
+  - term: Auto Scaling
+    definition: >-
+      The process of automatically adjusting the number of compute resources allocated
+      to an application based on current demand, predefined rules, or observed metrics.
+    synonyms:
+      - Autoscaling
+      - Elastic Scaling
+      - Dynamic Scaling
+    related:
+      - Horizontal Scaling
+      - Vertical Scaling
+      - Scale-to-Zero
+
+  - term: Horizontal Scaling
+    definition: >-
+      Adding more instances (pods, VMs, nodes) to handle increased load. Also called
+      scale-out. The dominant pattern for cloud-native applications because it allows
+      stateless services to run across many machines.
+    synonyms:
+      - Scale-Out
+      - Horizontal Pod Autoscaling (HPA)
+    related:
+      - Replication
+      - Load Balancing
+      - Stateless Architecture
+
+  - term: Vertical Scaling
+    definition: >-
+      Increasing the resources (CPU, RAM, disk) allocated to a single instance rather
+      than adding more instances. Also called scale-up. Limited by the maximum size
+      of available hardware.
+    synonyms:
+      - Scale-Up
+      - Vertical Pod Autoscaling (VPA)
+    related:
+      - Resource Limits
+      - Resource Requests
+
+  - term: Scale-to-Zero
+    definition: >-
+      The ability to reduce a workload's replica count to zero when there is no demand,
+      eliminating idle resource consumption. When demand returns, the system scales back
+      up from zero. Supported by KEDA, Knative, and serverless platforms.
+    related:
+      - Event-Driven Autoscaling
+      - KEDA
+      - Cold Start
+
+  - term: Cold Start
+    definition: >-
+      The latency penalty incurred when a scaled-to-zero workload must spin up new
+      instances to handle the first request after a period of inactivity.
+    related:
+      - Scale-to-Zero
+      - Warm Pool
+
+  - term: Event-Driven Autoscaling
+    definition: >-
+      Scaling decisions based on external event sources such as message queue depth,
+      stream lag, or custom metrics, rather than purely on CPU or memory usage.
+      KEDA is the primary Kubernetes implementation.
+    related:
+      - KEDA
+      - Message Queue
+      - Scaling Trigger
+
+  - term: KEDA
+    definition: >-
+      Kubernetes Event-Driven Autoscaling. A CNCF graduate project that extends
+      Kubernetes HPA to scale workloads based on external event sources. Supports
+      70+ built-in scalers including Kafka, SQS, Prometheus, Redis, and more.
+    acronym: KEDA
+    fullName: Kubernetes Event-Driven Autoscaling
+    url: https://keda.sh/
+    related:
+      - ScaledObject
+      - ScaledJob
+      - TriggerAuthentication
+
+  - term: ScaledObject
+    definition: >-
+      A KEDA Custom Resource Definition (CRD) that defines autoscaling behavior
+      for a Kubernetes workload (Deployment, StatefulSet, etc.) based on one or
+      more scaling triggers.
+    related:
+      - KEDA
+      - Scaling Trigger
+
+  - term: ScaledJob
+    definition: >-
+      A KEDA CRD for scaling Kubernetes Jobs based on event sources. Unlike
+      ScaledObject which scales long-running workloads, ScaledJob creates new
+      Job instances per batch of events.
+    related:
+      - KEDA
+      - Batch Processing
+
+  - term: Load Balancer
+    definition: >-
+      A device or software component that distributes incoming network requests
+      across a pool of backend servers to prevent overload on any single instance
+      and to improve availability and throughput.
+    related:
+      - Round Robin
+      - Least Connections
+      - Health Check
+      - Session Affinity
+
+  - term: Round Robin
+    definition: >-
+      A load balancing algorithm that cycles through backend servers in order,
+      sending each new request to the next server in the rotation. Simple and
+      works well when backends have similar capacity.
+    related:
+      - Load Balancer
+      - Weighted Round Robin
+
+  - term: Least Connections
+    definition: >-
+      A load balancing algorithm that routes new requests to the backend with
+      the fewest active connections. Better for workloads with variable request
+      durations.
+    related:
+      - Load Balancer
+
+  - term: Session Affinity
+    definition: >-
+      A load balancing feature that routes all requests from a given client to
+      the same backend server for the duration of a session. Also called sticky
+      sessions. Useful for stateful applications.
+    synonyms:
+      - Sticky Sessions
+    related:
+      - Load Balancer
+
+  - term: Health Check
+    definition: >-
+      Periodic probes sent to backend servers to verify they are alive and capable
+      of handling requests. Failed health checks remove the backend from the load
+      balancer pool until it recovers.
+    related:
+      - Liveness Probe
+      - Readiness Probe
+
+  - term: Liveness Probe
+    definition: >-
+      A Kubernetes mechanism that periodically checks if a container is still
+      running. If the probe fails, Kubernetes restarts the container.
+    related:
+      - Health Check
+      - Readiness Probe
+
+  - term: Readiness Probe
+    definition: >-
+      A Kubernetes mechanism that checks if a container is ready to accept traffic.
+      If the probe fails, the container is removed from the Service's endpoint list.
+    related:
+      - Health Check
+      - Liveness Probe
+
+  - term: Cooldown Period
+    definition: >-
+      A period after a scaling event during which further scale-down actions are
+      suppressed. Prevents thrashing (rapid scale-up/scale-down cycles).
+    synonyms:
+      - Stabilization Window
+    related:
+      - Auto Scaling
+
+  - term: Replication Factor
+    definition: >-
+      The number of copies (replicas) of a service, database partition, or data
+      object maintained to ensure availability and fault tolerance.
+    related:
+      - Horizontal Scaling
+      - Fault Tolerance
+
+  - term: Throughput
+    definition: >-
+      The number of requests or operations a system can process per unit of time,
+      typically measured in requests per second (RPS) or transactions per second (TPS).
+    related:
+      - Latency
+      - Capacity
+      - Performance
+
+  - term: Latency
+    definition: >-
+      The time elapsed between sending a request and receiving the first byte of
+      the response. Typically measured in milliseconds (ms) or percentile buckets
+      (p50, p95, p99).
+    related:
+      - Throughput
+      - SLA
+
+  - term: SLA
+    definition: >-
+      Service Level Agreement. A commitment between provider and user on the
+      availability, throughput, and latency the service will maintain, along with
+      remedies if commitments are not met.
+    acronym: SLA
+    fullName: Service Level Agreement
+    related:
+      - SLO
+      - SLI
+
+  - term: SLO
+    definition: >-
+      Service Level Objective. A specific measurable characteristic of an SLA, such
+      as p99 latency under 200ms or 99.9% uptime.
+    acronym: SLO
+    fullName: Service Level Objective
+    related:
+      - SLA
+      - SLI
+
+  - term: SLI
+    definition: >-
+      Service Level Indicator. The actual measured metric used to determine if an
+      SLO is being met (e.g., request success rate, latency percentile).
+    acronym: SLI
+    fullName: Service Level Indicator
+    related:
+      - SLO
+      - SLA
+
+  - term: Horizontal Pod Autoscaler (HPA)
+    definition: >-
+      A Kubernetes resource that automatically scales the number of pods in a
+      Deployment or ReplicaSet based on CPU utilization or custom metrics exposed
+      via the Kubernetes Metrics API.
+    acronym: HPA
+    fullName: Horizontal Pod Autoscaler
+    related:
+      - KEDA
+      - Vertical Pod Autoscaler
+
+  - term: Vertical Pod Autoscaler (VPA)
+    definition: >-
+      A Kubernetes resource that automatically adjusts CPU and memory resource
+      requests and limits for containers based on historical usage patterns.
+    acronym: VPA
+    fullName: Vertical Pod Autoscaler
+    related:
+      - Horizontal Pod Autoscaler
+
+  - term: Prometheus
+    definition: >-
+      An open-source monitoring and alerting toolkit, and CNCF graduate project,
+      that collects time-series metrics and is widely used as a scaling trigger
+      source for KEDA and custom metrics HPA configurations.
+    related:
+      - Grafana
+      - Metrics
+      - Alerting
+
+  - term: Grafana
+    definition: >-
+      An open-source analytics and observability platform used to visualize metrics,
+      logs, and traces from multiple data sources including Prometheus. Widely used
+      in scalability engineering for dashboards and alerts.
+    related:
+      - Prometheus
+      - Observability
+
+  - term: Sharding
+    definition: >-
+      A database scalability technique that partitions data across multiple database
+      instances (shards) based on a shard key, allowing horizontal scaling of
+      databases that would otherwise be limited to a single node.
+    related:
+      - Database Scaling
+      - Horizontal Scaling
+      - Partition Key
+
+  - term: Caching
+    definition: >-
+      Storing copies of frequently accessed data in faster storage (in-memory systems
+      like Redis or Memcached) to reduce the load on primary data stores and improve
+      response times at scale.
+    related:
+      - Redis
+      - CDN
+      - Cache Eviction
+
+  - term: CDN
+    definition: >-
+      Content Delivery Network. A geographically distributed network of proxy servers
+      that caches content closer to users to reduce latency and the load on origin
+      servers, enabling global scalability.
+    acronym: CDN
+    fullName: Content Delivery Network
+    related:
+      - Caching
+      - Edge Computing
+
+  - term: Circuit Breaker
+    definition: >-
+      A resilience pattern that prevents cascading failures by detecting when a
+      downstream service is failing and short-circuiting requests to it for a
+      cooldown period before retrying.
+    related:
+      - Retry
+      - Bulkhead
+      - Resilience
+
+  - term: Bulkhead
+    definition: >-
+      A resilience pattern that isolates components of a system into pools so that
+      if one pool is exhausted or fails, it does not affect other pools. Analogous
+      to watertight compartments in a ship.
+    related:
+      - Circuit Breaker
+      - Resilience
+
+categories:
+  - name: Scaling Mechanisms
+    terms:
+      - Auto Scaling
+      - Horizontal Scaling
+      - Vertical Scaling
+      - Scale-to-Zero
+      - Event-Driven Autoscaling
+
+  - name: Kubernetes Scaling
+    terms:
+      - KEDA
+      - ScaledObject
+      - ScaledJob
+      - Horizontal Pod Autoscaler (HPA)
+      - Vertical Pod Autoscaler (VPA)
+
+  - name: Traffic Distribution
+    terms:
+      - Load Balancer
+      - Round Robin
+      - Least Connections
+      - Session Affinity
+
+  - name: Observability
+    terms:
+      - Prometheus
+      - Grafana
+      - Health Check
+      - Liveness Probe
+      - Readiness Probe
+
+  - name: Performance Metrics
+    terms:
+      - Throughput
+      - Latency
+      - SLA
+      - SLO
+      - SLI
+
+  - name: Data Scalability
+    terms:
+      - Sharding
+      - Caching
+      - CDN
+      - Replication Factor
+
+  - name: Resilience Patterns
+    terms:
+      - Circuit Breaker
+      - Bulkhead
+      - Cooldown Period

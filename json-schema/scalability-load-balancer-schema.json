@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/scalability/main/json-schema/scalability-load-balancer-schema.json",
+  "title": "Load Balancer",
+  "description": "Describes a load balancer configuration for distributing network traffic across multiple compute resources to ensure high availability and scalability.",
+  "type": "object",
+  "required": ["name", "type", "backends"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the load balancer.",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name for the load balancer.",
+      "minLength": 1
+    },
+    "type": {
+      "type": "string",
+      "description": "Layer at which the load balancer operates.",
+      "enum": ["L4", "L7", "Global", "Regional", "Application", "Network", "Gateway"]
+    },
+    "algorithm": {
+      "type": "string",
+      "description": "Traffic distribution algorithm.",
+      "enum": ["round-robin", "least-connections", "ip-hash", "weighted", "random", "resource-based"],
+      "default": "round-robin"
+    },
+    "protocol": {
+      "type": "string",
+      "description": "Network protocol.",
+      "enum": ["HTTP", "HTTPS", "TCP", "UDP", "gRPC"],
+      "default": "HTTPS"
+    },
+    "frontendPort": {
+      "type": "integer",
+      "description": "Port on which the load balancer listens for incoming traffic.",
+      "minimum": 1,
+      "maximum": 65535
+    },
+    "healthCheck": {
+      "$ref": "#/$defs/HealthCheck"
+    },
+    "backends": {
+      "type": "array",
+      "description": "List of backend targets receiving distributed traffic.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/Backend"
+      }
+    },
+    "stickySession": {
+      "type": "object",
+      "description": "Session affinity/persistence configuration.",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": false
+        },
+        "cookieName": {
+          "type": "string"
+        },
+        "ttlSeconds": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "tlsTermination": {
+      "type": "boolean",
+      "description": "Whether TLS is terminated at the load balancer.",
+      "default": false
+    },
+    "tags": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "Backend": {
+      "type": "object",
+      "required": ["address", "port"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the backend."
+        },
+        "address": {
+          "type": "string",
+          "description": "IP address or hostname of the backend server."
+        },
+        "port": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "weight": {
+          "type": "integer",
+          "description": "Relative weight for weighted load balancing.",
+          "minimum": 0,
+          "maximum": 100,
+          "default": 1
+        },
+        "status": {
+          "type": "string",
+          "enum": ["healthy", "unhealthy", "draining", "unknown"],
+          "default": "unknown"
+        }
+      }
+    },
+    "HealthCheck": {
+      "type": "object",
+      "description": "Health check configuration for backend servers.",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": true
+        },
+        "protocol": {
+          "type": "string",
+          "enum": ["HTTP", "HTTPS", "TCP"],
+          "default": "HTTP"
+        },
+        "path": {
+          "type": "string",
+          "description": "HTTP path for health check requests.",
+          "default": "/health"
+        },
+        "intervalSeconds": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 30
+        },
+        "timeoutSeconds": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 5
+        },
+        "healthyThreshold": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 2
+        },
+        "unhealthyThreshold": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 3
+        },
+        "expectedStatusCodes": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "default": [200]
+        }
+      }
+    }
+  }
+}

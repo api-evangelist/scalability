@@ -1,0 +1,65 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://schema.org/",
+    "xapi": "https://raw.githubusercontent.com/api-evangelist/scalability/main/json-ld/scalability-context.jsonld#",
+    "keda": "https://keda.sh/ns/",
+    "k8s": "https://kubernetes.io/ns/",
+
+    "ScalingPolicy": {
+      "@id": "xapi:ScalingPolicy",
+      "@type": "@id",
+      "comment": "A policy that governs automatic scaling of compute resources based on demand signals."
+    },
+    "LoadBalancer": {
+      "@id": "xapi:LoadBalancer",
+      "@type": "@id",
+      "comment": "A component that distributes incoming network traffic across multiple backend servers."
+    },
+    "ScalingTrigger": {
+      "@id": "xapi:ScalingTrigger",
+      "@type": "@id",
+      "comment": "A metric or event source that drives autoscaling decisions."
+    },
+    "Backend": {
+      "@id": "xapi:Backend",
+      "@type": "@id",
+      "comment": "A backend server in a load balancer pool."
+    },
+    "HealthCheck": {
+      "@id": "xapi:HealthCheck",
+      "@type": "@id",
+      "comment": "Configuration for probing backend availability."
+    },
+
+    "name": "schema:name",
+    "description": "schema:description",
+    "namespace": "xapi:namespace",
+    "targetRef": "xapi:targetRef",
+    "minReplicaCount": "xapi:minReplicaCount",
+    "maxReplicaCount": "xapi:maxReplicaCount",
+    "pollingInterval": "xapi:pollingInterval",
+    "cooldownPeriod": "xapi:cooldownPeriod",
+    "triggers": {
+      "@id": "xapi:triggers",
+      "@container": "@list"
+    },
+    "threshold": "xapi:threshold",
+    "algorithm": "xapi:algorithm",
+    "protocol": "schema:protocol",
+    "backends": {
+      "@id": "xapi:backends",
+      "@container": "@list"
+    },
+    "healthCheck": "xapi:healthCheck",
+    "weight": "xapi:weight",
+    "status": "schema:status",
+    "address": "schema:address",
+    "port": "xapi:port",
+    "tags": "schema:keywords",
+    "scaleToZero": "xapi:scaleToZero",
+    "horizontalScaling": "xapi:horizontalScaling",
+    "verticalScaling": "xapi:verticalScaling",
+    "eventDriven": "xapi:eventDriven"
+  }
+}

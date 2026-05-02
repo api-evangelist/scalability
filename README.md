@@ -1,158 +1,156 @@
-# Scalability APIs (scalability)
-A collection of APIs and services focused on application scalability, infrastructure scaling, and performance optimization
+# Scalability
 
-**URL:** [Visit APIs.json URL](https://scalability-apis.example.com)
+A subject-matter collection covering APIs, tools, frameworks, and data sources related to application scalability, infrastructure scaling, performance optimization, and elastic resource management. This topic spans cloud provider auto-scaling, event-driven autoscaling (KEDA), load balancing, database scaling, and observability for scale.
 
-## Tags:
+**URL:** [https://raw.githubusercontent.com/api-evangelist/scalability/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/scalability/refs/heads/main/apis.yml)
 
- - Scalability, Auto Scaling, Load Balancing, Performance, Infrastructure, Cloud Computing, DevOps, High Availability, Distributed Systems
+## Tags
+
+Auto Scaling, Cloud Computing, DevOps, Distributed Systems, Elasticity, High Availability, Infrastructure, Load Balancing, Performance, Scalability
 
 ## Timestamps
 
-- **Created:** 2024-01-15 
-- **Modified:** 2024-01-15 
+- **Created:** 2024-01-15
+- **Modified:** 2026-05-02
 
 ## APIs
 
-### Auto Scaling API
-Dynamically adjust computing resources based on demand and predefined policies
+### KEDA (Kubernetes Event-Driven Autoscaling) API
+CNCF graduate project for fine-grained event-driven autoscaling of Kubernetes workloads, supporting 70+ built-in scalers and scale-to-zero.
 
-**Human URL:** [https://scalability-apis.example.com/auto-scaling](https://scalability-apis.example.com/auto-scaling)
+**Human URL:** [https://keda.sh/](https://keda.sh/)
 
+#### Tags
 
-#### Tags:
-
- - Auto Scaling, Infrastructure, Cloud Computing, Elastic Scaling
-
-#### Properties
-
-- [Documentation](https://docs.scalability.example.com/auto-scaling)
-- [OpenAPI](https://api.scalability.example.com/v1/autoscaling/openapi.json)
-- [Authentication](https://docs.scalability.example.com/auto-scaling/authentication)
-- [Pricing](https://scalability-apis.example.com/auto-scaling/pricing)
-- [Rate Limits](https://docs.scalability.example.com/auto-scaling/rate-limits)
-
-### Load Balancer API
-Distribute network traffic across multiple servers to optimize resource utilization
-
-**Human URL:** [https://scalability-apis.example.com/load-balancer](https://scalability-apis.example.com/load-balancer)
-
-
-#### Tags:
-
- - Load Balancing, Traffic Management, High Availability, Distribution
+Auto Scaling, CNCF, Event-Driven, Kubernetes, Scale To Zero
 
 #### Properties
 
-- [Documentation](https://docs.scalability.example.com/load-balancer)
-- [OpenAPI](https://api.scalability.example.com/v1/loadbalancer/openapi.json)
-- [SDK](https://github.com/scalability-apis/loadbalancer-sdk)
-- [Status Page](https://status.scalability.example.com/load-balancer)
-- [Changelog](https://scalability-apis.example.com/load-balancer/changelog)
+- [Documentation](https://keda.sh/docs/)
+- [GitHub](https://github.com/kedacore/keda)
+- [Changelog](https://github.com/kedacore/keda/releases)
+- [Blog](https://keda.sh/blog/)
 
-### Horizontal Scaling API
-Add or remove instances of application servers to handle varying workload demands
+### AWS Auto Scaling API
+Amazon Web Services Auto Scaling for EC2 instances, ECS services, DynamoDB tables, Lambda concurrency, and more.
 
-**Human URL:** [https://scalability-apis.example.com/horizontal-scaling](https://scalability-apis.example.com/horizontal-scaling)
+**Human URL:** [https://aws.amazon.com/autoscaling/](https://aws.amazon.com/autoscaling/)
 
+#### Tags
 
-#### Tags:
-
- - Horizontal Scaling, Instance Management, Containerization, Orchestration
+Amazon Web Services, Auto Scaling, Cloud, EC2, Elasticity
 
 #### Properties
 
-- [Documentation](https://docs.scalability.example.com/horizontal-scaling)
-- [OpenAPI](https://api.scalability.example.com/v1/horizontal/openapi.json)
-- [Webhooks](https://docs.scalability.example.com/horizontal-scaling/webhooks)
-- [Tutorials](https://scalability-apis.example.com/horizontal-scaling/tutorials)
+- [Documentation](https://docs.aws.amazon.com/autoscaling/)
+- [OpenAPI](https://raw.githubusercontent.com/APIs-guru/openapi-directory/main/APIs/amazonaws.com/autoscaling/2011-01-01/openapi.yaml)
+- [Pricing](https://aws.amazon.com/autoscaling/pricing/)
 
-### Vertical Scaling API
-Increase or decrease the resources (CPU, RAM, storage) of existing servers
+### Google Cloud Compute Engine Autoscaler API
+Google Cloud Autoscaler for managed instance groups and GKE cluster autoscaling.
 
-**Human URL:** [https://scalability-apis.example.com/vertical-scaling](https://scalability-apis.example.com/vertical-scaling)
+**Human URL:** [https://cloud.google.com/compute/docs/autoscaler](https://cloud.google.com/compute/docs/autoscaler)
 
+#### Tags
 
-#### Tags:
-
- - Vertical Scaling, Resource Management, Performance Optimization, Infrastructure
+Auto Scaling, Cloud, GKE, Google Cloud, Instance Groups
 
 #### Properties
 
-- [Documentation](https://docs.scalability.example.com/vertical-scaling)
-- [OpenAPI](https://api.scalability.example.com/v1/vertical/openapi.json)
-- [Best Practices](https://docs.scalability.example.com/vertical-scaling/best-practices)
+- [Documentation](https://cloud.google.com/compute/docs/autoscaler)
+- [OpenAPI](https://raw.githubusercontent.com/APIs-guru/openapi-directory/main/APIs/googleapis.com/compute/v1/openapi.yaml)
+- [Pricing](https://cloud.google.com/compute/pricing)
+- [SDK](https://cloud.google.com/sdk/docs)
 
-### Performance Monitoring API
-Monitor application and infrastructure performance metrics for scaling decisions
+### Azure Autoscale REST API
+Microsoft Azure Autoscale for VM Scale Sets, App Service, and Container Apps.
 
-**Human URL:** [https://scalability-apis.example.com/monitoring](https://scalability-apis.example.com/monitoring)
+**Human URL:** [https://learn.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-overview](https://learn.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-overview)
 
+#### Tags
 
-#### Tags:
-
- - Monitoring, Metrics, Analytics, Performance, Observability
-
-#### Properties
-
-- [Documentation](https://docs.scalability.example.com/monitoring)
-- [OpenAPI](https://api.scalability.example.com/v1/monitoring/openapi.json)
-- [Dashboard](https://dashboard.scalability.example.com/monitoring)
-- [Integrations](https://scalability-apis.example.com/monitoring/integrations)
-
-### CDN Scaling API
-Manage content delivery network resources for global scalability and performance
-
-**Human URL:** [https://scalability-apis.example.com/cdn](https://scalability-apis.example.com/cdn)
-
-
-#### Tags:
-
- - CDN, Content Delivery, Edge Computing, Global Distribution
+Auto Scaling, Azure, Cloud, Microsoft, Virtual Machine Scale Sets
 
 #### Properties
 
-- [Documentation](https://docs.scalability.example.com/cdn)
-- [OpenAPI](https://api.scalability.example.com/v1/cdn/openapi.json)
-- [Coverage Map](https://scalability-apis.example.com/cdn/coverage)
-- [Performance Reports](https://dashboard.scalability.example.com/cdn/reports)
+- [Documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-overview)
+- [OpenAPI](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/monitor/resource-manager/Microsoft.Insights/stable/2022-10-01/autoScale_API.json)
+- [SDK](https://learn.microsoft.com/en-us/azure/developer/)
 
-### Database Scaling API
-Scale database resources including read replicas, sharding, and partitioning
+### CloudWatch Application Signals API
+Amazon CloudWatch APM for detecting and diagnosing performance issues to inform scaling decisions.
 
-**Human URL:** [https://scalability-apis.example.com/database](https://scalability-apis.example.com/database)
+**Human URL:** [https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals.html](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals.html)
 
+#### Tags
 
-#### Tags:
-
- - Database, Data Scaling, Replication, Sharding, Storage
+Amazon Web Services, Observability, APM, Monitoring, Performance
 
 #### Properties
 
-- [Documentation](https://docs.scalability.example.com/database)
-- [OpenAPI](https://api.scalability.example.com/v1/database/openapi.json)
-- [Migration Guide](https://docs.scalability.example.com/database/migration)
-- [Backup & Recovery](https://docs.scalability.example.com/database/backup)
+- [Documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals.html)
+- [OpenAPI](https://raw.githubusercontent.com/APIs-guru/openapi-directory/main/APIs/amazonaws.com/monitoring/2010-08-01/openapi.yaml)
 
-### Queue Management API
-Manage message queues and asynchronous processing for scalable architectures
+### Prometheus HTTP API
+CNCF graduate open-source monitoring toolkit; the de-facto metrics source for scalability observability and custom autoscaling triggers.
 
-**Human URL:** [https://scalability-apis.example.com/queue](https://scalability-apis.example.com/queue)
+**Human URL:** [https://prometheus.io/](https://prometheus.io/)
 
+#### Tags
 
-#### Tags:
-
- - Message Queue, Asynchronous Processing, Event-Driven, Microservices
+CNCF, Metrics, Monitoring, Observability, Open Source, Prometheus, Time Series
 
 #### Properties
 
-- [Documentation](https://docs.scalability.example.com/queue)
-- [OpenAPI](https://api.scalability.example.com/v1/queue/openapi.json)
-- [Message Patterns](https://docs.scalability.example.com/queue/patterns)
-- [SDKs](https://github.com/scalability-apis/queue-sdks)
+- [Documentation](https://prometheus.io/docs/prometheus/latest/querying/api/)
+- [GitHub](https://github.com/prometheus/prometheus)
+
+### Grafana HTTP API
+Open-source analytics and observability platform for visualizing scalability metrics, dashboards, and alerts.
+
+**Human URL:** [https://grafana.com/](https://grafana.com/)
+
+#### Tags
+
+Dashboards, Grafana, Metrics, Monitoring, Observability, Open Source
+
+#### Properties
+
+- [Documentation](https://grafana.com/docs/grafana/latest/developers/http_api/)
+- [GitHub](https://github.com/grafana/grafana)
+- [Pricing](https://grafana.com/pricing/)
+
+## Schemas
+
+| Artifact | Description |
+|---|---|
+| [Scaling Policy Schema](json-schema/scalability-scaling-policy-schema.json) | JSON Schema for auto-scaling policies covering KEDA ScaledObjects, triggers, min/max replicas, and scaling behavior rules. |
+| [Load Balancer Schema](json-schema/scalability-load-balancer-schema.json) | JSON Schema for load balancer configuration including algorithms, backends, health checks, and session affinity. |
+
+## Structures
+
+| Artifact | Description |
+|---|---|
+| [Scaling Policy Structure](json-structure/scalability-scaling-policy-structure.json) | Hierarchical field documentation for scaling policy objects. |
+
+## Linked Data
+
+| Artifact | Description |
+|---|---|
+| [Scalability Context](json-ld/scalability-context.jsonld) | JSON-LD context mapping scalability vocabulary to schema.org and KEDA namespaces. |
+
+## Examples
+
+| Artifact | Description |
+|---|---|
+| [KEDA ScaledObject Example](examples/scalability-keda-scaled-object-example.json) | Example KEDA ScaledObject for a Kafka consumer with scale-to-zero and rate-limit policies. |
+
+## Vocabulary
+
+| Artifact | Description |
+|---|---|
+| [Scalability Vocabulary](vocabulary/scalability-vocabulary.yml) | Normative vocabulary for auto scaling, load balancing, Kubernetes scaling, observability, and resilience patterns. |
 
 ## Maintainers
 
-**FN:** Scalability APIs Team
-
-**Email:** contact@scalability.example.com
+**API Evangelist** — [kin@apievangelist.com](mailto:kin@apievangelist.com) — [https://apievangelist.com](https://apievangelist.com)
