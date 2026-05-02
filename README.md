@@ -132,6 +132,7 @@ Dashboards, Grafana, Metrics, Monitoring, Observability, Open Source
 | Artifact | Description |
 |---|---|
 | [Scaling Policy Structure](json-structure/scalability-scaling-policy-structure.json) | Hierarchical field documentation for scaling policy objects. |
+| [Load Balancer Structure](json-structure/scalability-load-balancer-structure.json) | Hierarchical field documentation for load balancer configurations including backend pools, health checks, and session affinity. |
 
 ## Linked Data
 
@@ -144,12 +145,19 @@ Dashboards, Grafana, Metrics, Monitoring, Observability, Open Source
 | Artifact | Description |
 |---|---|
 | [KEDA ScaledObject Example](examples/scalability-keda-scaled-object-example.json) | Example KEDA ScaledObject for a Kafka consumer with scale-to-zero and rate-limit policies. |
+| [Load Balancer Example](examples/scalability-load-balancer-example.json) | Example L7 load balancer configuration with least-connections algorithm, HTTPS, TLS termination, three backends, and health checks. |
 
 ## Vocabulary
 
 | Artifact | Description |
 |---|---|
 | [Scalability Vocabulary](vocabulary/scalability-vocabulary.yml) | Normative vocabulary for auto scaling, load balancing, Kubernetes scaling, observability, and resilience patterns. |
+
+## Common Properties
+
+- [GitHub Organization](https://github.com/kedacore)
+- [CNCF Landscape](https://landscape.cncf.io/card-mode?category=auto-scaling)
+- [Blog](https://kubernetes.io/blog/)
 
 ## Maintainers
 

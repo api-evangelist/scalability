@@ -233,6 +233,14 @@ common:
     url: https://landscape.cncf.io/card-mode?category=auto-scaling
   - type: Blog
     url: https://kubernetes.io/blog/
+  - type: JSONSchema
+    url: https://raw.githubusercontent.com/api-evangelist/scalability/main/json-schema/scalability-scaling-policy-schema.json
+  - type: JSONSchema
+    url: https://raw.githubusercontent.com/api-evangelist/scalability/main/json-schema/scalability-load-balancer-schema.json
+  - type: JSONLd
+    url: https://raw.githubusercontent.com/api-evangelist/scalability/main/json-ld/scalability-context.jsonld
+  - type: Vocabulary
+    url: https://raw.githubusercontent.com/api-evangelist/scalability/main/vocabulary/scalability-vocabulary.yml
 
 maintainers:
   - FN: API Evangelist

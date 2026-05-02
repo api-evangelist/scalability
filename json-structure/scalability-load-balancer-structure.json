@@ -1,0 +1,101 @@
+{
+  "name": "Load Balancer",
+  "description": "Hierarchical structure of a load balancer configuration for distributing network traffic across compute resources.",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "Unique UUID identifier for the load balancer.",
+      "required": false,
+      "format": "uuid"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "Human-readable name for the load balancer.",
+      "required": true
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "description": "Layer at which the load balancer operates (L4, L7, Global, Regional, Application, Network, Gateway).",
+      "required": true
+    },
+    {
+      "name": "algorithm",
+      "type": "string",
+      "description": "Traffic distribution algorithm (round-robin, least-connections, ip-hash, weighted, random, resource-based).",
+      "required": false,
+      "default": "round-robin"
+    },
+    {
+      "name": "protocol",
+      "type": "string",
+      "description": "Network protocol (HTTP, HTTPS, TCP, UDP, gRPC).",
+      "required": false,
+      "default": "HTTPS"
+    },
+    {
+      "name": "frontendPort",
+      "type": "integer",
+      "description": "Port on which the load balancer listens for incoming traffic.",
+      "required": false
+    },
+    {
+      "name": "healthCheck",
+      "type": "object",
+      "description": "Health check configuration for backend servers.",
+      "required": false,
+      "fields": [
+        {"name": "enabled", "type": "boolean", "description": "Whether health checks are active.", "default": true},
+        {"name": "protocol", "type": "string", "description": "Protocol for health check probes (HTTP, HTTPS, TCP)."},
+        {"name": "path", "type": "string", "description": "HTTP path for health check requests.", "default": "/health"},
+        {"name": "intervalSeconds", "type": "integer", "description": "Seconds between health check probes.", "default": 30},
+        {"name": "timeoutSeconds", "type": "integer", "description": "Seconds before a probe times out.", "default": 5},
+        {"name": "healthyThreshold", "type": "integer", "description": "Consecutive successes to mark backend healthy.", "default": 2},
+        {"name": "unhealthyThreshold", "type": "integer", "description": "Consecutive failures to mark backend unhealthy.", "default": 3},
+        {"name": "expectedStatusCodes", "type": "array", "description": "HTTP status codes indicating a healthy backend."}
+      ]
+    },
+    {
+      "name": "backends",
+      "type": "array",
+      "description": "List of backend targets receiving distributed traffic.",
+      "required": true,
+      "items": {
+        "type": "object",
+        "fields": [
+          {"name": "id", "type": "string", "description": "Unique identifier for the backend."},
+          {"name": "address", "type": "string", "description": "IP address or hostname of the backend server.", "required": true},
+          {"name": "port", "type": "integer", "description": "Port the backend listens on.", "required": true},
+          {"name": "weight", "type": "integer", "description": "Relative weight for weighted load balancing (0-100).", "default": 1},
+          {"name": "status", "type": "string", "description": "Backend health status (healthy, unhealthy, draining, unknown)."}
+        ]
+      }
+    },
+    {
+      "name": "stickySession",
+      "type": "object",
+      "description": "Session affinity (sticky session) configuration.",
+      "required": false,
+      "fields": [
+        {"name": "enabled", "type": "boolean", "description": "Whether sticky sessions are enabled.", "default": false},
+        {"name": "cookieName", "type": "string", "description": "Cookie name used for session tracking."},
+        {"name": "ttlSeconds", "type": "integer", "description": "Session TTL in seconds."}
+      ]
+    },
+    {
+      "name": "tlsTermination",
+      "type": "boolean",
+      "description": "Whether TLS is terminated at the load balancer (offloading TLS from backends).",
+      "required": false,
+      "default": false
+    },
+    {
+      "name": "tags",
+      "type": "object",
+      "description": "Key-value metadata labels for the load balancer.",
+      "required": false
+    }
+  ]
+}
