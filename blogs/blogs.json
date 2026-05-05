@@ -1,0 +1,13 @@
+{
+  "repo": "scalability",
+  "feeds": [
+    {
+      "source": "https://kubernetes.io/blog/",
+      "feed_url": "https://kubernetes.io/feed.xml",
+      "saved": 10,
+      "title": "Kubernetes Blog"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:35:37Z"
+}
