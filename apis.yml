@@ -46,7 +46,7 @@ apis:
         url: https://github.com/kedacore/keda
       - type: OpenAPI
         url: https://raw.githubusercontent.com/kedacore/keda/main/apis/keda/v1alpha1/
-      - type: Changelog
+      - type: ChangeLog
         url: https://github.com/kedacore/keda/releases
       - type: Blog
         url: https://keda.sh/blog/
@@ -78,7 +78,7 @@ apis:
         url: https://raw.githubusercontent.com/APIs-guru/openapi-directory/main/APIs/amazonaws.com/autoscaling/2011-01-01/openapi.yaml
       - type: Pricing
         url: https://aws.amazon.com/autoscaling/pricing/
-      - type: Getting Started
+      - type: GettingStarted
         url: https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
     contact:
       - type: Support
@@ -160,7 +160,7 @@ apis:
         url: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals.html
       - type: OpenAPI
         url: https://raw.githubusercontent.com/APIs-guru/openapi-directory/main/APIs/amazonaws.com/monitoring/2010-08-01/openapi.yaml
-      - type: Getting Started
+      - type: GettingStarted
         url: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/GetStarted.html
     contact:
       - type: Support
@@ -191,7 +191,7 @@ apis:
         url: https://github.com/prometheus/prometheus
       - type: OpenAPI
         url: https://raw.githubusercontent.com/prometheus/prometheus/main/web/api/v1/api.go
-      - type: Getting Started
+      - type: GettingStarted
         url: https://prometheus.io/docs/introduction/first_steps/
     contact:
       - type: GitHub Issues
@@ -218,7 +218,7 @@ apis:
         url: https://grafana.com/docs/grafana/latest/developers/http_api/
       - type: GitHub
         url: https://github.com/grafana/grafana
-      - type: Getting Started
+      - type: GettingStarted
         url: https://grafana.com/docs/grafana/latest/getting-started/
       - type: Pricing
         url: https://grafana.com/pricing/
@@ -227,7 +227,7 @@ apis:
         url: https://community.grafana.com/
 
 common:
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/kedacore
   - type: CNCF Landscape
     url: https://landscape.cncf.io/card-mode?category=auto-scaling
@@ -237,7 +237,7 @@ common:
     url: https://raw.githubusercontent.com/api-evangelist/scalability/main/json-schema/scalability-scaling-policy-schema.json
   - type: JSONSchema
     url: https://raw.githubusercontent.com/api-evangelist/scalability/main/json-schema/scalability-load-balancer-schema.json
-  - type: JSONLd
+  - type: JSONLD
     url: https://raw.githubusercontent.com/api-evangelist/scalability/main/json-ld/scalability-context.jsonld
   - type: Vocabulary
     url: https://raw.githubusercontent.com/api-evangelist/scalability/main/vocabulary/scalability-vocabulary.yml
