@@ -5,15 +5,15 @@
       "source": "https://kubernetes.io/blog/",
       "feed_url": "https://kubernetes.io/feed.xml",
       "title": "Kubernetes Blog",
-      "saved": 5
+      "saved": 45
     },
     {
       "source": "https://keda.sh/blog/",
       "feed_url": "https://keda.sh/blog/index.xml",
       "title": "The KEDA Blog on KEDA",
-      "saved": 0
+      "saved": 17
     }
   ],
-  "post_count": 15,
-  "fetched": "2026-05-09T20:17:51Z"
+  "post_count": 77,
+  "fetched": "2026-05-17T20:20:35Z"
 }
