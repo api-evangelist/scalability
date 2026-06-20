@@ -5,7 +5,7 @@ description: >-
   and elastic resource management. This topic spans cloud provider auto-scaling,
   event-driven autoscaling (KEDA), load balancing, database scaling, and observability
   for scale.
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/scalability/refs/heads/main/apis.yml
 created: '2024-01-15'
 modified: '2026-05-02'
@@ -62,7 +62,7 @@ apis:
       adjusts capacity to maintain steady, predictable performance at the lowest
       possible cost. Supports EC2 Auto Scaling, Application Auto Scaling for
       ECS, DynamoDB, Lambda, and more. Part of the AWS SDK and REST API surface.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanUrl: https://aws.amazon.com/autoscaling/
     baseUrl: https://autoscaling.amazonaws.com
     tags:
@@ -90,7 +90,7 @@ apis:
       groups based on CPU utilization, load balancing capacity, or Cloud Monitoring
       metrics. Integrates with Google Kubernetes Engine (GKE) for cluster autoscaling
       and node auto-provisioning.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanUrl: https://cloud.google.com/compute/docs/autoscaler
     baseUrl: https://compute.googleapis.com/compute/v1
     tags:
@@ -118,7 +118,7 @@ apis:
       on Azure resources including Virtual Machine Scale Sets, App Service, and
       Azure Container Apps. Supports schedule-based and metric-based scaling rules
       with notification capabilities.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanUrl: https://learn.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-overview
     baseUrl: https://management.azure.com
     tags:
@@ -146,7 +146,7 @@ apis:
       (APM) to help detect and diagnose performance issues and automatically correlate
       them with infrastructure metrics for scaling decisions. Part of the AWS
       observability suite used in scalability engineering.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanUrl: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals.html
     baseUrl: https://monitoring.amazonaws.com
     tags:
