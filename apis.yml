@@ -51,7 +51,7 @@ apis:
       - type: Blog
         url: https://keda.sh/blog/
     contact:
-      - type: GitHub Issues
+      - type: GitHubIssues
         url: https://github.com/kedacore/keda/issues
       - type: Slack
         url: https://kubernetes.slack.com/archives/CKZJ36A5D
@@ -106,7 +106,7 @@ apis:
         url: https://raw.githubusercontent.com/APIs-guru/openapi-directory/main/APIs/googleapis.com/compute/v1/openapi.yaml
       - type: Pricing
         url: https://cloud.google.com/compute/pricing
-      - type: SDK
+      - type: SDKs
         url: https://cloud.google.com/sdk/docs
     contact:
       - type: Support
@@ -132,7 +132,7 @@ apis:
         url: https://learn.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-overview
       - type: OpenAPI
         url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/monitor/resource-manager/Microsoft.Insights/stable/2022-10-01/autoScale_API.json
-      - type: SDK
+      - type: SDKs
         url: https://learn.microsoft.com/en-us/azure/developer/
       - type: Pricing
         url: https://azure.microsoft.com/en-us/pricing/
@@ -194,7 +194,7 @@ apis:
       - type: GettingStarted
         url: https://prometheus.io/docs/introduction/first_steps/
     contact:
-      - type: GitHub Issues
+      - type: GitHubIssues
         url: https://github.com/prometheus/prometheus/issues
 
   - name: Grafana HTTP API
