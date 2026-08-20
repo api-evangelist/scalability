@@ -23,6 +23,17 @@ created: '2024-01-15'
 modified: '2026-05-02'
 specificationVersion: '0.23'
 tags:
+  - Auto-Scaling
+  - Cloud Computing
+  - DevOps
+  - Distributed Systems
+  - Elasticity
+  - High Availability
+  - Infrastructure
+  - Load Balancing
+  - Performance
+  - Scalability
+tags_raw:
   - Auto Scaling
   - Cloud Computing
   - DevOps
@@ -46,6 +57,12 @@ apis:
     humanUrl: https://keda.sh/
     baseUrl: https://api.keda.sh
     tags:
+      - Auto-Scaling
+      - CNCF
+      - Event-Driven
+      - Kubernetes
+      - Scale To Zero
+    tags_raw:
       - Auto Scaling
       - CNCF
       - Event-Driven
@@ -79,6 +96,12 @@ apis:
     baseUrl: https://autoscaling.amazonaws.com
     tags:
       - Amazon Web Services
+      - Auto-Scaling
+      - Cloud
+      - EC2
+      - Elasticity
+    tags_raw:
+      - Amazon Web Services
       - Auto Scaling
       - Cloud
       - EC2
@@ -106,6 +129,12 @@ apis:
     humanUrl: https://cloud.google.com/compute/docs/autoscaler
     baseUrl: https://compute.googleapis.com/compute/v1
     tags:
+      - Auto-Scaling
+      - Cloud
+      - GKE
+      - Google Cloud
+      - Instance Groups
+    tags_raw:
       - Auto Scaling
       - Cloud
       - GKE
@@ -134,6 +163,12 @@ apis:
     humanUrl: https://learn.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-overview
     baseUrl: https://management.azure.com
     tags:
+      - Auto-Scaling
+      - Azure
+      - Cloud
+      - Microsoft
+      - Virtual Machine Scale Sets
+    tags_raw:
       - Auto Scaling
       - Azure
       - Cloud
@@ -193,6 +228,14 @@ apis:
       - Metrics
       - Monitoring
       - Observability
+      - Open-Source
+      - Prometheus
+      - Time Series
+    tags_raw:
+      - CNCF
+      - Metrics
+      - Monitoring
+      - Observability
       - Open Source
       - Prometheus
       - Time Series
@@ -219,6 +262,13 @@ apis:
     humanUrl: https://grafana.com/
     baseUrl: https://grafana.com/api
     tags:
+      - Dashboards
+      - Grafana
+      - Metrics
+      - Monitoring
+      - Observability
+      - Open-Source
+    tags_raw:
       - Dashboards
       - Grafana
       - Metrics
