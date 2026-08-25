@@ -5,7 +5,7 @@
       "source": "https://kubernetes.io/feed.xml",
       "feed_url": "https://kubernetes.io/feed.xml",
       "title": "",
-      "saved": 1,
+      "saved": 0,
       "method": "feed"
     },
     {
@@ -27,8 +27,7 @@
       "feed_url": "https://landscape.cncf.io/card-mode?category=auto-scaling",
       "title": "",
       "saved": 0,
-      "method": "none",
-      "error": "parse_failed"
+      "method": "none"
     },
     {
       "source": "https://github.com/kedacore/keda/releases",
@@ -39,5 +38,5 @@
     }
   ],
   "post_count": 105,
-  "fetched": "2026-08-15T12:11:08Z"
+  "fetched": "2026-08-22T20:20:02Z"
 }
