@@ -34,7 +34,7 @@ created: '2024-01-15'
 modified: '2026-05-02'
 specificationVersion: '0.23'
 tags:
-  - Auto Scaling
+  - Auto-Scaling
   - Cloud Computing
   - DevOps
   - Distributed Systems
@@ -68,7 +68,7 @@ apis:
     humanUrl: https://keda.sh/
     baseUrl: https://api.keda.sh
     tags:
-      - Auto Scaling
+      - Auto-Scaling
       - CNCF
       - Event-Driven
       - Kubernetes
@@ -107,7 +107,7 @@ apis:
     baseUrl: https://autoscaling.amazonaws.com
     tags:
       - Amazon Web Services
-      - Auto Scaling
+      - Auto-Scaling
       - Cloud
       - EC2
       - Elasticity
@@ -140,7 +140,7 @@ apis:
     humanUrl: https://cloud.google.com/compute/docs/autoscaler
     baseUrl: https://compute.googleapis.com/compute/v1
     tags:
-      - Auto Scaling
+      - Auto-Scaling
       - Cloud
       - GKE
       - Google Cloud
@@ -174,7 +174,7 @@ apis:
     humanUrl: https://learn.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-overview
     baseUrl: https://management.azure.com
     tags:
-      - Auto Scaling
+      - Auto-Scaling
       - Azure
       - Cloud
       - Microsoft
