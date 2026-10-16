@@ -2,15 +2,15 @@
   "repo": "scalability",
   "feeds": [
     {
-      "source": "https://github.com/kedacore/keda/releases",
-      "feed_url": "https://github.com/kedacore/keda/releases.atom",
+      "source": "https://keda.sh/blog/",
+      "feed_url": "https://keda.sh/blog/index.xml",
       "title": "",
       "saved": 0,
       "method": "discovered"
     },
     {
-      "source": "https://landscape.cncf.io/card-mode?category=auto-scaling",
-      "feed_url": "https://landscape.cncf.io/card-mode?category=auto-scaling",
+      "source": "https://kubernetes.io/blog/",
+      "feed_url": "https://kubernetes.io/blog/",
       "title": "",
       "saved": 0,
       "method": "none"
@@ -23,6 +23,13 @@
       "method": "feed"
     },
     {
+      "source": "https://kubernetes.io/feed.xml",
+      "feed_url": "https://kubernetes.io/feed.xml",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
       "source": "https://github.com/kedacore/keda/releases.atom",
       "feed_url": "https://github.com/kedacore/keda/releases.atom",
       "title": "",
@@ -30,15 +37,15 @@
       "method": "feed"
     },
     {
-      "source": "https://kubernetes.io/feed.xml",
-      "feed_url": "https://kubernetes.io/feed.xml",
+      "source": "https://landscape.cncf.io/card-mode?category=auto-scaling",
+      "feed_url": "https://landscape.cncf.io/card-mode?category=auto-scaling",
       "title": "",
       "saved": 0,
-      "method": "feed"
+      "method": "none"
     }
   ],
-  "post_count": 124,
-  "fetched": "2026-10-03T12:30:02Z",
+  "post_count": 126,
+  "fetched": "2026-10-10T13:15:00Z",
   "feed_nature": "vendor-blog",
   "feed_nature_basis": "path_blog",
   "feed_nature_note": "Whether these posts are the vendor publishing or its support community, decided on the URL path grammar of the saved posts -- not the hostname, which carries both on Khoros, and not author diversity, which flags large vendor blogs as forums. 'undetermined' means undetermined."
