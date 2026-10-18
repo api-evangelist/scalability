@@ -182,7 +182,7 @@ apis:
     baseUrl: https://management.azure.com
     tags:
       - Auto-Scaling
-      - Azure
+      - Microsoft Azure
       - Cloud
       - Microsoft
       - Virtual Machine Scale Sets
